@@ -118,24 +118,10 @@ input:focus {
   flex-grow: 1;
   padding: 10px;
   border: 2px solid #fbfbfc;
-  border-top-left-radius: 15px;
-  border-bottom-left-radius: 15px;
+  border-radius: 15px;
   background-color: #fbfbfc;
   color: #3b4252;
   font-size: 14px;
-  font-family: "open-sans";
-}
-
-.search-box button[type="submit"] {
-  padding: 10px;
-  border: none;
-  border-top-right-radius: 15px;
-  border-bottom-right-radius: 15px;
-  background-color: #e5e9f0;
-  color: #3b4252;
-  cursor: pointer;
-  font-size: 14px;
-  font-weight: bold;
   font-family: "open-sans";
 }
 
