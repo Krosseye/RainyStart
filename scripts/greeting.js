@@ -60,8 +60,10 @@ const fadeInTime = () => {
   }, 1000);
 };
 
+var nickname = getNickname();
+
 window.addEventListener("load", () => {
-  const greeting = `Good ${timeOfDay()}, Killian.`;
+  const greeting = `Good ${timeOfDay()}, ${nickname}.`;
   updateGreetingColor();
   printSlowly(greeting, 100, greetingElement);
 
