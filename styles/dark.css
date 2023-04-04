@@ -37,7 +37,6 @@ body {
 
 .table-container {
   display: flex;
-
   justify-content: center;
   align-items: center;
 }
@@ -57,10 +56,6 @@ td {
 
 .table-container th[type="ent-title"] {
   color: #bf616a;
-}
-
-.table-container {
-  fill: #ff0000;
 }
 
 .table-container th[type="soc-title"] {
@@ -110,7 +105,8 @@ td {
 }
 
 input:focus {
-  outline: none;
+  outline: none !important;
+  box-shadow: 0 0 5px #3b4252;
 }
 
 .search-box input[type="text"] {
@@ -125,8 +121,8 @@ input:focus {
 }
 
 #search-icon {
-  height: 48px;
-  width: 48px;
+  height: 43px;
+  width: 43px;
 }
 
 #current-time {
@@ -138,5 +134,5 @@ input:focus {
 
 @font-face {
   font-family: "open-sans";
-  src: url("../OpenSans.ttf") format("truetype");
+  src: url("../fonts/OpenSans.ttf") format("truetype");
 }
