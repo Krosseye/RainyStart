@@ -7,12 +7,12 @@ canvas.style.display = "block";
 
 const settings = {
   letters:
-    '123456789¦!"£$%^&*()_+=[{]};:#~/?.>,< |ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz'.split(
+    '123456789¦!"£$%^&*()_+=[{]};:#~/?.>,<|ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz'.split(
       ""
     ),
   fontSize: 12,
   columns: 0,
-  drops: 0,
+  drops: [],
 };
 
 const adjustCanvasSize = () => {
@@ -20,13 +20,20 @@ const adjustCanvasSize = () => {
     Math.floor(window.innerWidth / settings.fontSize) * settings.fontSize;
   canvas.width = width;
   settings.columns = width / settings.fontSize;
-  settings.drops = Array.from({ length: settings.columns }, () => 1);
+  canvasContext.font = `normal 12px 'Open Sans', sans-serif`;
+  settings.drops = Array.from({ length: settings.columns }, () =>
+    Math.floor((Math.random() * canvas.height) / settings.fontSize)
+  );
 };
 
 adjustCanvasSize();
 window.addEventListener("resize", adjustCanvasSize);
 
-canvasContext.font = `normal 12px Open-Sans`;
+const font = new FontFace("Open Sans", "url(../fonts/OpenSans.ttf)");
+font.load().then(() => {
+  document.fonts.add(font);
+  canvasContext.font = `normal 12px 'Open Sans', sans-serif`;
+});
 
 const draw = () => {
   const prefersDarkScheme = window.matchMedia("(prefers-color-scheme: dark)");
