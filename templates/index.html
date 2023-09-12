@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      rel="icon"
+      type="image/x-icon"
+      href="{{ url_for('static', filename='img/favicon.png') }}"
+    />
+    <title>RainyStart</title>
+    <link
+      rel="stylesheet"
+      type="text/css"
+      href="{{ url_for('static', filename='styles/default.css') }}"
+    />
+  </head>
+  <body>
+    <div class="matrix-container">
+      <canvas id="matrix-canvas"> </canvas>
+      <div class="greeting-container">
+        <p id="current-time">00:00</p>
+        <h1 id="greeting"></h1>
+      </div>
+    </div>
+    <div class="search-box">
+      <img
+        id="search-icon"
+        src="{{ url_for('static', filename='img/duckduckgo.svg') }}"
+        alt="DuckDuckGo Logo"
+      />
+      <form action="https://duckduckgo.com/" method="GET">
+        <input
+          type="text"
+          name="q"
+          placeholder="Search on DuckDuckGo..."
+          autofocus
+        />
+      </form>
+    </div>
+    <div class="search-box">
+      <img
+        id="search-icon"
+        src="{{ url_for('static', filename='img/brave.svg') }}"
+        alt="Brave Logo"
+      />
+      <form action="https://search.brave.com/search" method="GET">
+        <input type="text" name="q" placeholder="Search on Brave..." />
+      </form>
+    </div>
+    <div class="search-box">
+      <img
+        id="search-icon"
+        src="{{ url_for('static', filename='img/google.png') }}"
+        alt="Google Logo"
+      />
+      <form action="https://www.google.com/search" method="GET">
+        <input type="text" name="q" placeholder="Search on Google..." />
+      </form>
+    </div>
+    <div class="table-container">
+      <table>
+        <tr>
+          <!-- Loop through categories to create table headers -->
+          {% for category in websites_data %}
+          <th><h2>{{ category['category'] }}</h2></th>
+          {% endfor %}
+        </tr>
+        <!-- Determine the maximum number of links in any category -->
+        {% set max_links = websites_data | map(attribute='links') |
+        map('length') | max %} {% for i in range(max_links) %}
+        <tr>
+          <!-- Loop through categories to populate links under headers -->
+          {% for category in websites_data %} {% if i < category['links'] |
+          length %}
+          <td>
+            {{ category['links'][i]['icon'] }}
+            <a href="{{ category['links'][i]['link'] }}"
+              >{{ category['links'][i]['name'] }}</a
+            >
+          </td>
+          {% else %}
+          <td></td>
+          {% endif %} {% endfor %}
+        </tr>
+        {% endfor %}
+      </table>
+    </div>
+
+    <script src="{{ url_for('static', filename='scripts/get-nickname.js') }}"></script>
+    <script src="{{ url_for('static', filename='scripts/greeting.js') }}"></script>
+    <script src="{{ url_for('static', filename='scripts/matrix.js') }}"></script>
+  </body>
+</html>

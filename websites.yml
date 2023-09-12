@@ -1,0 +1,75 @@
+- category: Entertainment
+  links:
+    - name: Youtube
+      link: https://www.youtube.com/
+      icon: 🎬
+      description: Watch and share videos.
+    - name: Netflix
+      link: https://www.netflix.com/browse
+      icon: 🍿
+      description: Stream your favorite movies and TV shows.
+    - name: Disney+
+      link: https://www.disneyplus.com/en-gb/select-profile
+      icon: 🏰
+      description: Discover Disney's magical content.
+    - name: Prime Video
+      link: https://www.primevideo.com/
+      icon: 🎥
+      description: Enjoy movies and TV series on Prime Video.
+
+- category: Social
+  links:
+    - name: Proton Mail
+      link: https://mail.proton.me/
+      icon: 📧
+      description: Secure email service.
+    - name: Reddit
+      link: https://www.reddit.com/
+      icon: 🌐
+      description: Explore communities and discussions.
+    - name: Facebook
+      link: https://www.facebook.com/
+      icon: 📱
+      description: Connect with friends and family.
+    - name: Mastodon
+      link: https://mastodon.ie/
+      icon: 🐘
+      description: Join a decentralized social network.
+
+- category: Productivity
+  links:
+    - name: ChatGPT
+      link: https://chat.openai.com/chat
+      icon: 💬
+      description: Access AI-powered chat for assistance.
+    - name: GitHub
+      link: https://github.com/
+      icon: 🧑‍💻
+      description: Collaborate on software development.
+    - name: Simplenote
+      link: https://app.simplenote.com/
+      icon: 🗒️
+      description: Take and organize notes easily.
+    - name: Proton Drive
+      link: https://drive.proton.me/
+      icon: 📂
+      description: Secure cloud storage and file sharing.
+
+- category: Shopping
+  links:
+    - name: Amazon
+      link: https://smile.amazon.co.uk/
+      icon: 🛒
+      description: Shop for a wide range of products.
+    - name: eBay
+      link: https://www.ebay.ie/
+      icon: 🛍️
+      description: Buy and sell goods in auctions.
+    - name: CardMarket
+      link: https://www.cardmarket.com/
+      icon: 🃏
+      description: Trade collectible card games.
+    - name: DekuDeals
+      link: https://www.dekudeals.com/
+      icon: 🎮
+      description: Find deals on video games and accessories.
