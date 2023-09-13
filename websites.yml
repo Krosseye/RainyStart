@@ -42,6 +42,10 @@
       link: https://chat.openai.com/chat
       icon: 💬
       description: Access AI-powered chat for assistance.
+    - name: Phind
+      link: https://www.phind.com/
+      icon: 🔍
+      description: Your AI search engine and pair programmer.
     - name: GitHub
       link: https://github.com/
       icon: 🧑‍💻

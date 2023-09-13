@@ -158,3 +158,34 @@ input:focus {
   font-family: "open-sans";
   src: url("../fonts/OpenSans.ttf") format("truetype");
 }
+
+.editor-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  position: relative;
+}
+
+#editor {
+  display: block;
+  margin: 3rem auto;
+  height: 60vh;
+  width: 70vw;
+  border-radius: 0.5rem;
+}
+
+.editor-container button {
+  font: var(--font-family);
+  margin: 10px 3rem;
+  background-color: var(--secondary-color);
+  border: none;
+  border-radius: 10px;
+  color: var(--text-color);
+  padding: 0.75rem 1.25rem;
+  text-decoration: none;
+  transition: scale 0.2s;
+  cursor: pointer;
+}
+.editor-container button:hover {
+  scale: 1.1;
+}

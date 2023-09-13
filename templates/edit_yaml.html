@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>RainyStart: Configuration</title>
+    <link
+      rel="icon"
+      type="image/x-icon"
+      href="{{ url_for('static', filename='img/favicon.png') }}"
+    />
+    <link
+      rel="stylesheet"
+      type="text/css"
+      href="{{ url_for('static', filename='styles/default.css') }}"
+    />
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/ace/1.4.12/ace.js"></script>
+  </head>
+
+  <body>
+    <div class="matrix-container">
+      <canvas id="matrix-canvas"> </canvas>
+      <div class="greeting-container">
+        <p id="current-time">00:00</p>
+        <h1 id="greeting"></h1>
+      </div>
+    </div>
+    <div class="editor-container">
+      <div id="editor"></div>
+      <div class="buttons">
+        <button onclick="saveYaml()">Save</button>
+        <button onclick="cancelEdit()">Cancel</button>
+      </div>
+    </div>
+    <script>
+      // Initialize Ace editor
+      var editor = ace.edit("editor");
+      editor.setTheme("ace/theme/nord_dark");
+      editor.getSession().setMode("ace/mode/yaml");
+
+      // Load YAML into editor
+      fetch("/get-yaml")
+        .then((response) => response.text())
+        .then((data) => {
+          editor.setValue(data);
+          editor.gotoLine(editor.getSession().getLength());
+          editor.navigateLineEnd();
+        });
+
+      // Saving updated YAML
+      function saveYaml() {
+        var updatedYaml = editor.getValue();
+        fetch("/save-yaml", {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/x-www-form-urlencoded",
+          },
+          body: "yaml=" + encodeURIComponent(updatedYaml),
+        }).then((response) => {
+          if (response.ok) {
+            alert("YAML file updated successfully!");
+          } else {
+            alert("Error updating YAML file.");
+          }
+        });
+      }
+
+      // Handle cancel action
+      function cancelEdit() {
+        window.location.href = "/"; // Redirect to root page
+      }
+    </script>
+    <script src="{{ url_for('static', filename='scripts/get-nickname.js') }}"></script>
+    <script src="{{ url_for('static', filename='scripts/greeting.js') }}"></script>
+    <script src="{{ url_for('static', filename='scripts/matrix.js') }}"></script>
+  </body>
+</html>

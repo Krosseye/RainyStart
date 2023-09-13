@@ -51,7 +51,7 @@
     <div class="search-box">
       <img
         id="search-icon"
-        src="{{ url_for('static', filename='img/google.png') }}"
+        src="{{ url_for('static', filename='img/google.svg') }}"
         alt="Google Logo"
       />
       <form action="https://www.google.com/search" method="GET">
@@ -73,7 +73,7 @@
           <!-- Loop through categories to populate links under headers -->
           {% for category in websites_data %} {% if i < category['links'] |
           length %}
-          <td>
+          <td title="{{ category['links'][i]['description'] }}">
             {{ category['links'][i]['icon'] }}
             <a href="{{ category['links'][i]['link'] }}"
               >{{ category['links'][i]['name'] }}</a
@@ -86,7 +86,6 @@
         {% endfor %}
       </table>
     </div>
-
     <script src="{{ url_for('static', filename='scripts/get-nickname.js') }}"></script>
     <script src="{{ url_for('static', filename='scripts/greeting.js') }}"></script>
     <script src="{{ url_for('static', filename='scripts/matrix.js') }}"></script>
